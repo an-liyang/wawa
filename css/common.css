@@ -1,0 +1,55 @@
+.loader {
+  float: left;
+  width: 25%;
+}
+div,
+p,
+ul,
+li,
+a,
+img,
+input {
+  box-sizing: border-box;
+}
+.content {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+}
+.content #zhuzi {
+  width: 40px;
+  height: 15px;
+  border: 1px solid black;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+.content #chukou {
+  width: 70px;
+  height: 70px;
+  border-right: 1px solid #f60 ;
+  border-top: 1px solid #f60 ;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.content #start,
+.content #down {
+  position: absolute;
+  bottom: 20px;
+  height: 30px;
+  line-height: 30px;
+  width: 50px;
+  background-color: royalblue;
+  border-radius: 5px;
+}
+.content #start {
+  left: 118px;
+}
+.content #down {
+  left: 318px;
+}

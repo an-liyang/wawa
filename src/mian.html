@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抓娃娃大战</title>
+    <link rel="stylesheet" href="../css/demo.css">
+    <link rel="stylesheet" href="../css/loaders.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script src="../js/jquery.js"></script>
+</head>
+<body>
+        <!--<div id="showImg" style="width:320px; height:375px;"></div>-->
+        <!--<button id="start">开始</button>-->
+        <!--<button id="stop">停止</button>-->
+        <!--<input type="text" value="200" id="speed" />-->
+      <!--<script type="text/javascript">-->
+        <!--var FBFAnimation = (function(){-->
+            <!--function start() {-->
+                <!--if (this.timeLine) return;-->
+                <!--var speed = (this._json.speed ? this._json.speed : 500), bthis = this;-->
+                <!--this.timeLine = setInterval(function() {-->
+                    <!--animation.apply(bthis);-->
+                <!--}, speed);-->
+            <!--};-->
+         <!---->
+            <!--function stop() {-->
+                <!--if (this.timeLine) clearTimeout(this.timeLine);-->
+                <!--this.timeLine = null;-->
+            <!--};-->
+         <!---->
+            <!--function setSpeed(val) {-->
+                <!--if (!val) return;-->
+                <!--this._json.speed = val;-->
+            <!--};-->
+         <!---->
+            <!--function getPosition() {-->
+                <!--var x = 0, y = 0;-->
+                <!--if ((this.startFrames == this.endFrames) && this._json.loop) this.startFrames = 0;-->
+                <!--x = -(this.width * this.startFrames);-->
+        <!---->
+                <!--x+=10;-->
+                <!--this.startFrames++;-->
+                <!--return { x : x, y : y };-->
+            <!--};-->
+         <!---->
+            <!--function animation() {-->
+                <!--if (!this._json.loop && this.startFrames == this.endFrames - 1) this.stop();-->
+                <!--var offset = getPosition.apply(this);-->
+                <!--this._json.target.style.backgroundPosition = ""+ offset.x +"px "+ offset.y +"px";-->
+            <!--};-->
+         <!---->
+            <!--function init() {-->
+                <!--var target = this._json.target;-->
+                <!--this.width = 0;-->
+                <!--this.height = 0;-->
+                <!--this.startFrames = 0;-->
+                <!--this.endFrames = this._json.frames;-->
+                <!--target.style.backgroundImage = 'url(' + this._json.img + ')';-->
+                <!--target.style.backgroundRepeat = "no-repeat";-->
+                <!--target.style.backgroundPosition = "0 0";-->
+         <!---->
+                <!--if (!this._json.width) this.width = parseInt(this._json.target.style.width);-->
+                <!--if (!this._json.height) this.height = parseInt(this._json.target.style.height);-->
+            <!--};-->
+         <!---->
+            <!--return function(args) {-->
+                <!--this._json = args || {};-->
+         <!---->
+                <!--if (!this._json.target) throw new Error('target is not exist!');-->
+                <!--if (!this._json.img) throw new Error('img not exist!');-->
+                <!--if (!this._json.frames) throw new Error('frames number not exist');-->
+                <!--if (typeof this._json.loop == "undefined") this._json.loop = true;-->
+         <!---->
+                <!--init.apply(this);       //initialize-->
+         <!---->
+                <!--this.start = start;     //interface-->
+                <!--this.stop = stop;-->
+                <!--this.setSpeed = setSpeed;-->
+            <!--};-->
+        <!--})();-->
+        <!---->
+        <!--var s = new FBFAnimation({-->
+            <!--target : document.getElementById('showImg'),-->
+            <!--img : '../img/img.jpg',-->
+            <!--frames : 7,-->
+            <!--speed : 500-->
+        <!--});-->
+         <!---->
+        <!--document.getElementById('start').onclick = function() {-->
+            <!--s.start();-->
+        <!--};-->
+         <!---->
+        <!--document.getElementById('stop').onclick = function() {-->
+            <!--s.stop();-->
+        <!--};-->
+         <!---->
+        <!--document.getElementById('speed').onchange = function() {-->
+            <!--s.setSpeed(document.getElementById('speed').value);-->
+        <!--}-->
+        <!--</script>-->
+    <!--<main>-->
+        <!--<div class="loader">-->
+            <!--<div class="loader-inner ball-scale">-->
+              <!--<div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="loader">-->
+            <!--<div class="loader-inner ball-scale-multiple">-->
+              <!--<div></div>-->
+              <!--<div></div>-->
+              <!--<div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+          <!---->
+        <!--<div class="loader">-->
+            <!--<div class="loader-inner ball-scale-ripple">-->
+              <!--<div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="loader">-->
+            <!--<div class="loader-inner ball-scale-ripple-multiple">-->
+              <!--<div></div>-->
+              <!--<div></div>-->
+              <!--<div></div>-->
+            <!--</div>-->
+        <!--</div>-->
+          <!---->
+        <!--</main>-->
+        <!---->
+        <!--<script>-->
+        <!--document.addEventListener('DOMContentLoaded', function () {-->
+          <!--document.querySelector('main').className += 'loaded';-->
+        <!--});-->
+        <!--</script>-->
+   <div class="content">
+     <!--爪子-->
+     <div id="zhuzi">爪子</div>
+     <div id="start">开始</div>
+     <div id="down">向下</div>
+     <!--出口-->
+     <div id="chukou">出口</div>
+     
+   </div>
+</body>
+<script>
+  $(function () {
+      var css = {'left':'359'};
+      var hTop = {"top":'500'};
+      var timer = 0;
+      
+//      y轴防止重复点击
+      var Y_flag = false;
+//      记录开始的时间
+      var count_timer = function(){
+//          x轴返回时间
+           set_time=setInterval(function () {
+                  console.log(1);
+                  timer+=200;
+              },200);
+          return set_time
+      }
+      $('#start').click(function () {
+          count_timer();
+          $("#zhuzi").animate(css,5000,rowBack);
+      })
+//      左右
+      function rowBack(){
+          if(css.left=='50')
+              css.left='359';
+          else if(css.left<=360)
+              css.left='50';
+//          console.log(css);
+          $('#zhuzi').animate(css,5000,rowBack);
+      }
+//      向下
+      function colBack() {
+          var _left = $("#zhuzi").position('left');
+          console.log(timer,_left);
+          $("#zhuzi").animate({'top':'15'},2000,function () {
+              console.log(3333);
+              $("#zhuzi").animate({'left':'15'},timer,function () {
+//                  确定返回动画完成重置参数
+                  timer = 0;
+                  Y_flag = false;
+              })
+          })
+      }
+      $('#down').click(function () {
+          if(Y_flag){
+              return '';
+          }else {
+              Y_flag = true;
+              clearInterval(set_time);
+              var flag = 0;
+              flag = Math.floor(timer/5000);
+//          最终返回x轴时间确定
+              if(flag%2 == 0){
+                  timer -=5000*flag;
+              }else {
+                  timer=5000*(flag+1) - timer;
+              }
+//          阻止x轴动画停止
+              console.log(timer);
+              $("#zhuzi").stop();
+              $("#zhuzi").animate(hTop,2000,colBack)
+          }
+          
+      })
+
+  })
+</script>
+</html>
