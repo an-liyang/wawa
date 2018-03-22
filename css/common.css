@@ -71,3 +71,12 @@ input {
   background: 0 0 url("../img/娃娃.png") no-repeat;
   background-size: 100%;
 }
+#line {
+  width: 0.1rem;
+  height: 0;
+  background-color: #F6F4F2;
+  position: absolute;
+  top: 0.35rem;
+  left: 49%;
+  transform: translateX(-50%);
+}

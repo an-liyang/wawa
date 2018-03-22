@@ -15,7 +15,9 @@
     <div class="mian">
       <div class="content">
         <!--爪子-->
-        <div id="zhuzi"></div>
+        <div id="zhuzi">
+          <div id="line"></div>
+        </div>
         <div id="start">开始</div>
         <div id="down">向下</div>
         <!--出口-->
@@ -98,7 +100,11 @@
 //          阻止x轴动画停止
               console.log(timer);
               $("#zhuzi").stop();
+              console.log($("#zhuzi").position().top);
               $("#zhuzi").animate(hTop,2000,colBack)
+              $("#line").animate({'height':'2.7rem'},2000,function () {
+                  $("#line").animate({'height':'0'},2000)
+              })
           }
           
       });
@@ -108,7 +114,7 @@
       }
       function random1() {
           var ran1=Math.floor(Math.random()*10+1);
-          console("恭喜抓住普通娃娃");
+          console.log("恭喜抓住普通娃娃");
       }
       function random2() {
           var ran2=Math.floor(Math.random()*100+1);
