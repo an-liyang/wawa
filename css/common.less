@@ -24,8 +24,6 @@ div,p,ul,li,a,img,input{
     #zhuzi{
         width: 0.74rem;
         height: 1.49rem;
-        background: 0 0  url("../img/爪子-正常.png") no-repeat ;
-        background-size: 100%;
         position: absolute;
         left: 0.8rem;
         top: 2.6rem;
@@ -64,17 +62,79 @@ div,p,ul,li,a,img,input{
         height: 3.46rem;
         background: 0 0  url("../img/娃娃.png") no-repeat ;
         background-size: 100%;
+        z-index: 2;
     }
 
 }
+//滑轮
+#hualun{
+    width: 0.74rem;
+    height: 0.49rem;
+    background: 0 0  url("../img/爪子滑块.png") no-repeat ;
+    background-size: 100%;
+    position: absolute;
+    top: -0.1rem;
+}
+#claw{
+    width: 0.74rem;
+    height: 2rem;
+    background: 0 0 url("../img/爪子-松开.png") no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0.32rem;
+}
 //线
 #line{
-    width: 0.1rem;
-    height: 0;
-    background-color: #F6F4F2;
+    width: 0.12rem;
+    height: 0.6rem;
+    background: 0 0  url("../img/长条.png") no-repeat repeat;
+    background-size: 100%;
     position: absolute;
     top: 0.35rem;
     left: 49%;
     transform: translateX(-50%);
+    z-index: 1;
 
 }
+
+.wawa{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+}
+.animated{
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation:mymove 2s ;
+}
+@-webkit-keyframes mymove {
+    from {
+        opacity: 1;
+        top:0.85rem;
+    }
+    to {
+        opacity: 0;
+        top:4rem;
+    }
+}
+@keyframes mymove {
+    from {
+        opacity: 1;
+        top:0.85rem;
+    }
+    to {
+        opacity: 0;
+        top:4rem;
+    }
+}
+.mymove {
+    -webkit-animation-name: mymove;
+    animation-name: mymove;
+}
+
+
